@@ -1,25 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Routes from './routes';
-import store from './store.js';
-import {BrowserRouter} from 'react-router-dom';
-import {Provider} from 'react-redux';
-import * as serviceWorker from './serviceWorker';
-import './assets/styles/custom.css';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { unstable_HistoryRouter as HistoryRouter } from "react-router-dom";
+import { Provider } from "react-redux";
 
-function WebApp() {
-    return (
-        <BrowserRouter>
-            <Provider store={store}>
-                <Routes component={Routes}/>
-            </Provider>
-        </BrowserRouter>
-    );
-}
+import "./assets/styles/custom.css";
+import reportWebVitals from "./reportWebVitals";
+import Routes from "./routes";
+import history from "./managers/history";
+import { store } from "./store";
 
-ReactDOM.render(<WebApp/>, document.getElementById('root'));
+const WebApp = () => {
+  return (
+    <HistoryRouter history={history}>
+      <Provider store={store}>
+        <Routes />
+      </Provider>
+    </HistoryRouter>
+  );
+};
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<WebApp />);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();

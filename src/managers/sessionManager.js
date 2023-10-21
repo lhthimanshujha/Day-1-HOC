@@ -2,24 +2,28 @@
  * Created by Ayush Kulshrestha on 18/09/2019.
  */
 
-import Cookies from 'universal-cookie';
+import UniversalCookies from "universal-cookie";
 
-const cookies = new Cookies();
+export default class Cookies {
+  constructor(opts = {}) {
+    this.cookies = new UniversalCookies(opts);
+  }
 
-export const sessionManager = {
-    setDataInCookies,
-    getDataFromCookies,
-    removeDataFromCookies,
-};
+  set(key, data, options = { path: "/" }) {
+    this.cookies.set(key, JSON.stringify(data), options);
+  }
 
-function setDataInCookies(data, key) {
-    cookies.set(key, JSON.stringify(data), {path: '/'});
-}
+  get(key) {
+    const value = this.cookies.get(key);
+    try {
+      return JSON.parse(value);
+    } catch (error) {
+      console.error("Error parsing cookie data:", error);
+      return null;
+    }
+  }
 
-function getDataFromCookies(key) {
-    return cookies.get(key)
-}
-
-function removeDataFromCookies(key) {
-    cookies.remove(key, {path: '/'});
+  remove(key, options = { path: "/" }) {
+    this.cookies.remove(key, options);
+  }
 }

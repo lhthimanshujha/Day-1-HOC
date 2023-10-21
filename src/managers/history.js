@@ -1,4 +1,4 @@
-import { createBrowserHistory } from 'history';
+import { createBrowserHistory } from "history";
 
 /**
  * The history library lets you easily manage session history anywhere JavaScript runs.
@@ -6,5 +6,4 @@ import { createBrowserHistory } from 'history';
  * that lets you manage the history stack, navigate, and persist state between sessions.
  */
 
-
-export const history = createBrowserHistory();
+export default createBrowserHistory();

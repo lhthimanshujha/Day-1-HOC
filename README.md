@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Getting Started with LHT React Tailwind Template
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -7,17 +7,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 In the project directory, you can run:
 
 ### `npm start`
+### `npm run start:dev`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
@@ -68,18 +64,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-
-
-### Setup of the boilerplate (base template) of this project 
-
-1. The template of this project (React-tailwind) has been created from scratch using create-react-app
-2. With the latest version of create-react-app, the new React app generated, has react-scripts version as '5.0.0' by default.
-3. The webpack version also is above 5.0.0 by default.
-4. The latest version of the create-react-app does not include the Node JS polyfills, due to which a lot of node packages including 'web3' is deprecated and doesn't work
-5. Hence, to make the boilerplate compatible with more and more packages, the react-scripts' version is changed to '3.1.1' right after using the create-react-app
-6. To set up the tailwind css into the react app, npm package 'craco' is installed for which version '5.8.0' works with react-scripts versions < 4.0.0
-7. The dependency for "webpack", is added to the package.json file separately, with the version "^4.0.0".
-8. Lastly, "SKIP_PREFLIGHT_CHECK=true" is added to the project's .env file to avoid any blockers to run the application
-9. After completing the above steps, the node modules which were not working earlier were installed again, and they started working.
-10. Hence, all the above steps and changes are crucial for the working of this boilerplate, and the project created above it and hence should be preserved in all circumstances.

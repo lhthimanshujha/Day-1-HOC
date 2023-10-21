@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default class HTTPService {
+class ExampleService {
   constructor(baseURL) {
     this.instance = axios.create({ baseURL });
 
@@ -47,14 +47,6 @@ export default class HTTPService {
       throw error;
     }
   };
-
-  delete = async (endpoint, data = {}) => {
-    try {
-      const response = await this.instance.delete(endpoint, data);
-      return response;
-    } catch (error) {
-      console.error("Error making DELETE request:", error);
-      throw error;
-    }
-  };
 }
+
+export default ExampleService;
