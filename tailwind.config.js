@@ -28,25 +28,25 @@ module.exports = {
       current: "currentColor",
       white: "#FFFFFF",
       black: {
-        50: "#141414",
+        10: "#111827",
       },
       primary: {
-        50: "#FFDB0A",
+        10: "#FFDB0A",
       },
       blue: {
-        50: "#3D61B0",
+        10: "#3D61B0",
       },
       grey: {
-        50: "#F6FAFC",
+        10: "#F6FAFC",
       },
       red: {
-        50: "#FF6142",
+        10: "#FF2A29",
       },
       navyBlue: {
-        50: "#26458C",
+        10: "#4F46E5",
       },
       darkGrey: {
-        50: "#333333",
+        10: "#333333",
       },
     },
     extend: {
@@ -55,7 +55,7 @@ module.exports = {
         //common for width, height, padding, margin
         4.5: "18px", //p-4.5 , m-4.5 , w-4.5, h-4.5
         11.5: "46px", //divide the required value by 4 to get the key name (46/4 = 11.5)
-        '77px': "77px",
+        "77px": "77px", // Directly use the pixel value if the divided has more than 1 decimal (e.g., 77/4 = 19.25, so use 77px)
       },
     },
   },

@@ -1,10 +1,18 @@
 import React from "react";
+import { useForm } from "react-hook-form";
+import { BiLoaderAlt } from "react-icons/bi";
 
-const Form = () => {
+const Form = ({ onSubmit, isLoading }) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
   return (
     <div className="flex min-h-screen flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-black-10">
           Sign in to your account
         </h2>
       </div>
@@ -14,7 +22,7 @@ const Form = () => {
           <div>
             <label
               htmlFor="name"
-              className="block text-sm font-medium leading-6 text-gray-900"
+              className="block text-sm font-medium leading-6 text-black-10"
             >
               Name
             </label>
@@ -22,14 +30,22 @@ const Form = () => {
               <input
                 id="name"
                 type="text"
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                {...register("name", {
+                  required: "Please enter name.",
+                })}
+                className="block w-full rounded-md border-0 py-1.5 text-black-10 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-navyBlue-10 sm:text-sm sm:leading-6"
               />
             </div>
+            {!!errors.name && (
+              <div className="text-red-10 font-PoppinsRegular pl-2 text-xs mt-1 ">
+                {errors.name.message}
+              </div>
+            )}
           </div>
           <div>
             <label
               htmlFor="email"
-              className="block text-sm font-medium leading-6 text-gray-900"
+              className="block text-sm font-medium leading-6 text-black-10"
             >
               Email address
             </label>
@@ -38,23 +54,36 @@ const Form = () => {
                 id="email"
                 name="email"
                 type="email"
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                {...register("email", {
+                  required: "Please enter email.",
+                  pattern: {
+                    value:
+                      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                    message: "Please enter a valid email.",
+                  },
+                })}
+                className="block w-full rounded-md border-0 py-1.5 text-black-10 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-navyBlue-10 sm:text-sm sm:leading-6"
               />
             </div>
+            {!!errors.email && (
+              <div className="text-red-10 font-PoppinsRegular pl-2 text-xs mt-1 ">
+                {errors.email.message}
+              </div>
+            )}
           </div>
 
           <div>
             <div className="flex items-center justify-between">
               <label
                 htmlFor="password"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-sm font-medium leading-6 text-black-10"
               >
                 Password
               </label>
               <div className="text-sm">
                 <a
                   href="#"
-                  className="font-semibold text-indigo-600 hover:text-indigo-500"
+                  className="font-semibold text-navyBlue-10 hover:text-indigo-500"
                 >
                   Forgot password?
                 </a>
@@ -65,17 +94,37 @@ const Form = () => {
                 id="password"
                 name="password"
                 type="password"
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                {...register("password", {
+                  pattern: {
+                    value:
+                      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+                    message:
+                      "Password must include letters, numbers and special characters.",
+                  },
+                  minLength: {
+                    value: 8,
+                    message: "Password must be at least 8 characters.",
+                  },
+                  required: "Password is required.",
+                })}
+                className="block w-full rounded-md border-0 py-1.5 text-black-10 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-navyBlue-10 sm:text-sm sm:leading-6"
               />
             </div>
+            {!!errors.password && (
+              <div className="text-red-10 font-PoppinsRegular pl-2 text-xs mt-1 ">
+                {errors.password.message}
+              </div>
+            )}
           </div>
 
           <div>
             <button
               type="submit"
-              className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              disabled={isLoading}
+              onClick={handleSubmit(onSubmit)}
+              className="flex w-full justify-center rounded-md bg-navyBlue-10 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navyBlue-10"
             >
-              Sign in
+              {isLoading ? <BiLoaderAlt className="w-8 h-8 text-white animate-spin" /> : "Sign in"}
             </button>
           </div>
         </form>
@@ -84,7 +133,7 @@ const Form = () => {
           Not a member?{" "}
           <a
             href="#"
-            className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+            className="font-semibold leading-6 text-navyBlue-10 hover:text-indigo-500"
           >
             Signup
           </a>

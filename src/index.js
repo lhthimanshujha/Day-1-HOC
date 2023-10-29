@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { unstable_HistoryRouter as HistoryRouter } from "react-router-dom";
 import { Provider } from "react-redux";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import "./assets/styles/custom.css";
 import reportWebVitals from "./reportWebVitals";
@@ -14,6 +16,7 @@ const WebApp = () => {
     <HistoryRouter history={history}>
       <Provider store={store}>
         <Routes />
+        <ToastContainer />
       </Provider>
     </HistoryRouter>
   );

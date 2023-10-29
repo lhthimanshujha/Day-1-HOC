@@ -4,10 +4,7 @@ const { ACTION_TYPES } = formConstants;
 const { UDPATE_STATE } = ACTION_TYPES;
 
 export const initialState = {
-  name: "",
-  age: "",
-  email: "",
-  password: "",
+  isLoading: false,
 };
 
 export default function reducer(state, action) {
