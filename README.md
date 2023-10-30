@@ -2,6 +2,18 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Prerequisites
+
+Node.js v16 or higher (Recommended v18)
+
+## Recommended VSCode Extensions
+
+To enhance your development experience, we recommend using the following VSCode extensions:
+
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint): Integrates ESLint, a linter for JavaScript and JSX, to identify and fix problems in your code.
+- [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode): Provides automatic code formatting according to your project's configuration.
+- [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss): Offers enhanced IntelliSense and autocompletion for Tailwind CSS classes.
+
 ## Available Scripts
 
 In the project directory, you can run:
