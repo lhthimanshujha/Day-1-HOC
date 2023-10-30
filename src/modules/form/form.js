@@ -33,11 +33,11 @@ const Form = ({ onSubmit, isLoading }) => {
                 {...register("name", {
                   required: "Please enter name."
                 })}
-                className="block w-full rounded-md border-0 py-1.5 text-black-10 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-navyBlue-10 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 text-black-10 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset focus:ring-navyBlue-10 sm:text-sm sm:leading-6"
               />
             </div>
             {!!errors.name && (
-              <div className="text-red-10 font-PoppinsRegular pl-2 text-xs mt-1 ">
+              <div className="mt-1 pl-2 font-PoppinsRegular text-xs text-red-10">
                 {errors.name.message}
               </div>
             )}
@@ -62,11 +62,11 @@ const Form = ({ onSubmit, isLoading }) => {
                     message: "Please enter a valid email."
                   }
                 })}
-                className="block w-full rounded-md border-0 py-1.5 text-black-10 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-navyBlue-10 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 text-black-10 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset focus:ring-navyBlue-10 sm:text-sm sm:leading-6"
               />
             </div>
             {!!errors.email && (
-              <div className="text-red-10 font-PoppinsRegular pl-2 text-xs mt-1 ">
+              <div className="mt-1 pl-2 font-PoppinsRegular text-xs text-red-10 ">
                 {errors.email.message}
               </div>
             )}
@@ -81,10 +81,7 @@ const Form = ({ onSubmit, isLoading }) => {
                 Password
               </label>
               <div className="text-sm">
-                <a
-                  href="#"
-                  className="font-semibold text-navyBlue-10 hover:text-indigo-500"
-                >
+                <a href="#" className="font-semibold text-navyBlue-10">
                   Forgot password?
                 </a>
               </div>
@@ -107,11 +104,11 @@ const Form = ({ onSubmit, isLoading }) => {
                   },
                   required: "Password is required."
                 })}
-                className="block w-full rounded-md border-0 py-1.5 text-black-10 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-navyBlue-10 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 text-black-10 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset focus:ring-navyBlue-10 sm:text-sm sm:leading-6"
               />
             </div>
             {!!errors.password && (
-              <div className="text-red-10 font-PoppinsRegular pl-2 text-xs mt-1 ">
+              <div className="mt-1 pl-2 font-PoppinsRegular text-xs text-red-10 ">
                 {errors.password.message}
               </div>
             )}
@@ -122,10 +119,10 @@ const Form = ({ onSubmit, isLoading }) => {
               type="submit"
               disabled={isLoading}
               onClick={handleSubmit(onSubmit)}
-              className="flex w-full justify-center rounded-md bg-navyBlue-10 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navyBlue-10"
+              className="flex w-full justify-center rounded-md bg-navyBlue-10 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navyBlue-10"
             >
               {isLoading ? (
-                <BiLoaderAlt className="w-8 h-8 text-white animate-spin" />
+                <BiLoaderAlt className="h-8 w-8 animate-spin text-white" />
               ) : (
                 "Sign in"
               )}
@@ -133,12 +130,9 @@ const Form = ({ onSubmit, isLoading }) => {
           </div>
         </form>
 
-        <p className="mt-10 text-center text-sm text-gray-500">
+        <p className="mt-10 text-center text-sm">
           Not a member?{" "}
-          <a
-            href="#"
-            className="font-semibold leading-6 text-navyBlue-10 hover:text-indigo-500"
-          >
+          <a href="#" className="font-semibold leading-6 text-navyBlue-10">
             Signup
           </a>
         </p>
