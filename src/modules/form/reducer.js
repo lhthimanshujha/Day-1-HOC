@@ -4,7 +4,7 @@ const { ACTION_TYPES } = formConstants;
 const { UDPATE_STATE } = ACTION_TYPES;
 
 export const initialState = {
-  isLoading: false,
+  isLoading: false
 };
 
 export default function reducer(state, action) {

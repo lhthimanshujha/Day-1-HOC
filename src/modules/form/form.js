@@ -6,7 +6,7 @@ const Form = ({ onSubmit, isLoading }) => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }
   } = useForm();
 
   return (
@@ -31,7 +31,7 @@ const Form = ({ onSubmit, isLoading }) => {
                 id="name"
                 type="text"
                 {...register("name", {
-                  required: "Please enter name.",
+                  required: "Please enter name."
                 })}
                 className="block w-full rounded-md border-0 py-1.5 text-black-10 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-navyBlue-10 sm:text-sm sm:leading-6"
               />
@@ -59,8 +59,8 @@ const Form = ({ onSubmit, isLoading }) => {
                   pattern: {
                     value:
                       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                    message: "Please enter a valid email.",
-                  },
+                    message: "Please enter a valid email."
+                  }
                 })}
                 className="block w-full rounded-md border-0 py-1.5 text-black-10 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-navyBlue-10 sm:text-sm sm:leading-6"
               />
@@ -99,13 +99,13 @@ const Form = ({ onSubmit, isLoading }) => {
                     value:
                       /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
                     message:
-                      "Password must include letters, numbers and special characters.",
+                      "Password must include letters, numbers and special characters."
                   },
                   minLength: {
                     value: 8,
-                    message: "Password must be at least 8 characters.",
+                    message: "Password must be at least 8 characters."
                   },
-                  required: "Password is required.",
+                  required: "Password is required."
                 })}
                 className="block w-full rounded-md border-0 py-1.5 text-black-10 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-navyBlue-10 sm:text-sm sm:leading-6"
               />
@@ -124,7 +124,11 @@ const Form = ({ onSubmit, isLoading }) => {
               onClick={handleSubmit(onSubmit)}
               className="flex w-full justify-center rounded-md bg-navyBlue-10 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navyBlue-10"
             >
-              {isLoading ? <BiLoaderAlt className="w-8 h-8 text-white animate-spin" /> : "Sign in"}
+              {isLoading ? (
+                <BiLoaderAlt className="w-8 h-8 text-white animate-spin" />
+              ) : (
+                "Sign in"
+              )}
             </button>
           </div>
         </form>

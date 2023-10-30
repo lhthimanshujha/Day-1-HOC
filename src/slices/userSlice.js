@@ -3,17 +3,18 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   isLoggedIn: false,
   userId: "",
-  email: "",
+  email: ""
 };
 
 export const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
-    updateUser: (state, action) => {
-      state = { ...state, ...action.payload };
-    },
-  },
+    updateUser: (state, action) => ({
+      ...state,
+      ...action.payload
+    })
+  }
 });
 
 export const { updateUser } = userSlice.actions;

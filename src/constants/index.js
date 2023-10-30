@@ -8,18 +8,18 @@ export const httpConstants = {
     APPLICATION_JSON: "application/json",
     MULTIPART_FORM_DATA: "multipart/form-data",
     APPLICATION_FORM_URLENCODED: "application/x-www-form-urlencoded",
-    IMAGE_PNG: "image/png",
+    IMAGE_PNG: "image/png"
   },
   DEVICE_TYPE: { WEB: "web" },
-  API_END_POINT: {},
+  API_END_POINT: {}
 };
 
 export const formConstants = {
   ACTION_TYPES: {
-    UDPATE_STATE: "UDPATE_STATE",
-  },
+    UDPATE_STATE: "UDPATE_STATE"
+  }
 };
 
 export const keyConstants = {
-  USER: "user",
+  USER: "user"
 };

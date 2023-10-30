@@ -102,7 +102,7 @@ export default class HTTPService {
     try {
       const response = await this.instance.delete(endpoint, {
         data,
-        ...config,
+        ...config
       });
       return response;
     } catch (error) {
