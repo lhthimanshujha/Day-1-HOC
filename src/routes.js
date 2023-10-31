@@ -1,21 +1,17 @@
-import React from 'react';
-import {Router, Route} from 'react-router-dom';
-import {Redirect, Switch} from "react-router";
-import {connect} from "react-redux";
-import Main from "./modules/main/index"
-import {history} from "./managers/history";
+import React from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
 
-const Routes = () => {
-    return (
-        <Router history={history}>
-            <Switch>
-                <Route exact path={'/'} component={Main}/>
-                <Redirect exact from='*' to="/"/>
-            </Switch>
-        </Router>);
-}
+import Home from "./modules/home";
+import ExampleForm from "./modules/form";
 
-const mapStateToProps = (state) => {
-    return {user: state.user}
+const Router = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<ExampleForm />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
+  );
 };
-export default connect(mapStateToProps)(Routes);
+
+export default Router;
