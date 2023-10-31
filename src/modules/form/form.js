@@ -12,7 +12,7 @@ const Form = ({ onSubmit, isLoading }) => {
   return (
     <div className="flex min-h-screen flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-black-10">
+        <h2 className="mt-10 text-center text-ft24-32 font-bold tracking-tight text-black-10">
           Sign in to your account
         </h2>
       </div>
@@ -22,7 +22,7 @@ const Form = ({ onSubmit, isLoading }) => {
           <div>
             <label
               htmlFor="name"
-              className="block text-sm font-medium leading-6 text-black-10"
+              className="block text-ft14-20 font-medium text-black-10"
             >
               Name
             </label>
@@ -33,11 +33,11 @@ const Form = ({ onSubmit, isLoading }) => {
                 {...register("name", {
                   required: "Please enter name."
                 })}
-                className="block w-full rounded-md border-0 py-1.5 text-black-10 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset focus:ring-navyBlue-10 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 text-black-10 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset focus:ring-navyBlue-10 sm:text-ft14-20"
               />
             </div>
             {!!errors.name && (
-              <div className="mt-1 pl-2 font-PoppinsRegular text-xs text-red-10">
+              <div className="mt-1 pl-2 font-PoppinsRegular text-ft12-16 text-red-10">
                 {errors.name.message}
               </div>
             )}
@@ -45,7 +45,7 @@ const Form = ({ onSubmit, isLoading }) => {
           <div>
             <label
               htmlFor="email"
-              className="block text-sm font-medium leading-6 text-black-10"
+              className="block text-ft14-20 font-medium text-black-10"
             >
               Email address
             </label>
@@ -62,11 +62,11 @@ const Form = ({ onSubmit, isLoading }) => {
                     message: "Please enter a valid email."
                   }
                 })}
-                className="block w-full rounded-md border-0 py-1.5 text-black-10 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset focus:ring-navyBlue-10 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 text-black-10 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset focus:ring-navyBlue-10 sm:text-ft14-20"
               />
             </div>
             {!!errors.email && (
-              <div className="mt-1 pl-2 font-PoppinsRegular text-xs text-red-10 ">
+              <div className="mt-1 pl-2 font-PoppinsRegular text-ft12-16 text-red-10 ">
                 {errors.email.message}
               </div>
             )}
@@ -76,11 +76,11 @@ const Form = ({ onSubmit, isLoading }) => {
             <div className="flex items-center justify-between">
               <label
                 htmlFor="password"
-                className="block text-sm font-medium leading-6 text-black-10"
+                className="block text-ft14-20 font-medium text-black-10"
               >
                 Password
               </label>
-              <div className="text-sm">
+              <div className="text-ft14-20">
                 <a href="#" className="font-semibold text-navyBlue-10">
                   Forgot password?
                 </a>
@@ -104,11 +104,11 @@ const Form = ({ onSubmit, isLoading }) => {
                   },
                   required: "Password is required."
                 })}
-                className="block w-full rounded-md border-0 py-1.5 text-black-10 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset focus:ring-navyBlue-10 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 text-black-10 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset focus:ring-navyBlue-10 sm:text-ft14-20"
               />
             </div>
             {!!errors.password && (
-              <div className="mt-1 pl-2 font-PoppinsRegular text-xs text-red-10 ">
+              <div className="mt-1 pl-2 font-PoppinsRegular text-ft12-16 text-red-10 ">
                 {errors.password.message}
               </div>
             )}
@@ -119,7 +119,7 @@ const Form = ({ onSubmit, isLoading }) => {
               type="submit"
               disabled={isLoading}
               onClick={handleSubmit(onSubmit)}
-              className="flex w-full justify-center rounded-md bg-navyBlue-10 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navyBlue-10"
+              className="flex w-full justify-center rounded-md bg-navyBlue-10 px-3 py-1.5 text-ft14-20 font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navyBlue-10"
             >
               {isLoading ? (
                 <BiLoaderAlt className="h-8 w-8 animate-spin text-white" />
@@ -130,9 +130,9 @@ const Form = ({ onSubmit, isLoading }) => {
           </div>
         </form>
 
-        <p className="mt-10 text-center text-sm">
+        <p className="mt-10 text-center text-ft14-20">
           Not a member?{" "}
-          <a href="#" className="font-semibold leading-6 text-navyBlue-10">
+          <a href="#" className="font-semibold text-navyBlue-10">
             Signup
           </a>
         </p>
