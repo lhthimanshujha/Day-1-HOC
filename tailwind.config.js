@@ -49,6 +49,17 @@ module.exports = {
         10: "#333333"
       }
     },
+    fontSize: {
+      // `[fontSize, lineHeight]`
+      "ft12-16": ["12px", "16px"],
+      "ft14-20": ["14px", "20px"],
+      "ft16-24": ["16px", "24px"],
+      "ft20-28": ["20px", "28px"],
+      "ft24-32": ["24px", "32px"],
+      "ft30-36": ["30px", "36px"],
+      "ft36-40": ["36px", "40px"],
+      "ft48-16": ["48px", "16px"]
+    },
     extend: {
       //theme options are to be extended with custom variants and not overridden (1 unit = 4px)
       spacing: {
