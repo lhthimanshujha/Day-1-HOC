@@ -1,13 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-const Content = () => {
-  return (
-    <div className="grid min-h-screen place-items-center">
-      <h1 className="font-PoppinsSemiBold text-ft48-16">
-        LHT React Tailwind Template
-      </h1>
-    </div>
-  );
+const withLogger = (WrappedComponent) => {
+  return function WithLogger(props) {
+    useEffect(() => {
+      /* eslint-disable no-console */
+      console.log(
+        `Component ${WrappedComponent.displayName || WrappedComponent.name} mounted`
+      );
+      return () => {
+        console.log(
+          `Component ${WrappedComponent.displayName || WrappedComponent.name} will unmount`
+        );
+      };
+    }, []);
+
+    useEffect(() => {
+      console.log(
+        `Component ${WrappedComponent.displayName || WrappedComponent.name} updated`
+      );
+    });
+
+    return <WrappedComponent {...props} />;
+  };
 };
 
-export default Content;
+function MyComponent() {
+  return <div>High Order Component(HOC)</div>;
+}
+
+const MyComponentWithLogger = withLogger(MyComponent);
+
+export default MyComponentWithLogger;
